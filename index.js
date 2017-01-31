@@ -14,7 +14,8 @@ app.get('/connect', function(req, res){
 
     var v = setInterval(function(){
       console.log('writing ' + testdata);
-      res.write('data: {"msg": '+ testdata +'}\n\n');
+      var s = res.write('data: {"msg": '+ testdata +'}\n\n');
+      console.log('s:', s);
     }, 1000);
     
     setTimeout(function () {
