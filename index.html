@@ -14,7 +14,7 @@
       function connect() {
         source = new EventSource("connect");
         source.addEventListener("message", function(event) {
-          output.textContent = event.data;
+          output.innerHTML += event.data + "<br>";
         }, false);
 
         source.addEventListener("connecttime", function(event) {
