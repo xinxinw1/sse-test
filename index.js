@@ -12,10 +12,15 @@ app.get('/connect', function(req, res){
       'Cache-Control': 'no-cache'
     });
 
-    setInterval(function(){
+    var v = setInterval(function(){
       console.log('writing ' + testdata);
       res.write('data: {"msg": '+ testdata +'}\n\n');
     }, 1000);
+    
+    setTimeout(function () {
+      clearInterval(v);
+      res.end();
+    }, 5000);
 });
 
 var port = process.env.PORT || 8003;
